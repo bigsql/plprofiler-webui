@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+  <h1>{% block title %} Connect to a DB {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <ul style="list-style-type:none;">
+      <li>
+        <label for="host">Host: </label>
+        <input name="host" id="host" required>
+      </li>
+
+      <li>
+        <label for="port">Port: </label>
+        <input name="port" id="port" required>
+      </li>
+
+      <li>
+        <label for="dbname">Database Name: </label>
+        <input name="dbname" id="dbname" required>
+      </li>
+
+      <li>
+        <label for="username">Username: </label>
+        <input name="username" id="username" required>
+      </li>
+
+      <li>
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required>
+      </li>
+
+      <li>
+        <label for="query">query: </label>
+        <textarea name="query" id="query" rows="3" cols="80"></textarea>
+      </li>
+
+      <li>
+        <input type="submit" value="run">
+      </li>
+    </ul>
+  </form>
+{% endblock %}
