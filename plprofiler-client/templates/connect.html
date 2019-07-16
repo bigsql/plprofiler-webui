@@ -6,21 +6,40 @@
 {% endblock %}
 
 {% block content %}
+  <script type="text/javascript">
+    function updateflags() {
+      var dbmenu = document.getElementById("servername");
+      var dbDetails = dbmenu.options[dbmenu.selectedIndex].value.split(", ");
+      document.getElementById("host").value = dbDetails[0];
+      document.getElementById("port").value = dbDetails[1];
+      document.getElementById("dbname").value = dbDetails[2];
+    }
+  </script>
+
   <form method="post">
     <ul style="list-style-type:none;">
       <li>
-        <label for="host">Host: </label>
-        <input name="host" id="host" required>
+        <label for="servername"> Select: </label>
+        <select name="servername" id="servername" width="300px" onchange="updateflags()">
+          {% for server in server_list %}
+          <option value="{{ server['host'] }}, {{ server['port'] }}, {{ server['name'] }}"> {{ server['servername'] }} </option>
+          {% endfor %}
+        </select>
       </li>
 
       <li>
-        <label for="port">Port: </label>
-        <input name="port" id="port" required>
+        <label for="host"> Host: </label>
+        <input id="host" name="host" required>
       </li>
 
       <li>
-        <label for="dbname">Database Name: </label>
-        <input name="dbname" id="dbname" required>
+        <label for="port"> Port: </label>
+        <input id="port" name="port" required>
+      </li>
+
+      <li>
+        <label for="dbname"> Database Name: </label>
+        <input id="dbname" name="dbname" required>
       </li>
 
       <li>
@@ -30,11 +49,26 @@
 
       <li>
         <label for="password">Password: </label>
-        <input type="password" name="password" id="password" required>
+        <input name="password" id="password" value="modify password in ~/.pgpass">
       </li>
 
       <li>
-        <label for="query">query: </label>
+        <label for="result_name"> Result Name (optional): </label>
+        <input name="result_name" id="result_name">
+      </li>
+
+      <li>
+        <label for="result_title"> Result Title (optional): </label>
+        <input name="result_title" id="result_title">
+      </li>
+
+      <li>
+        <label for="result_description"> Result Description(optional): </label>
+        <textarea name="result_description" id="result_description" rows="3" cols="78"></textarea>
+      </li>
+
+      <li>
+        <label for="query">Query to Profile: </label>
         <textarea name="query" id="query" rows="3" cols="80"></textarea>
       </li>
 

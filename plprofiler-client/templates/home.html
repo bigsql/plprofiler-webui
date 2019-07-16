@@ -8,11 +8,15 @@
   <form method="post">
     <ul style="list-style-type:none;">
       <li>
-        <a href="{{ url_for ('registerDB.registerDB') }}"> Register a Database</a>
+        <a href="{{ url_for ('manage_databases.registerDB') }}"> Manage databases</a>
       </li>
 
       <li>
         <a href="{{ url_for ('connect.connect') }}"> Connect and profile a query </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for ('monitor.monitor') }}"> Monitor a database </a>
       </li>
 
     </ul>

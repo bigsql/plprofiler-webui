@@ -1,8 +1,10 @@
 import os
 
 from flask import (
-    Blueprint, g, render_template, request, session, url_for, flash, g, redirect, current_app
+    Blueprint, g, render_template, request, redirect, current_app, url_for
 )
+
+from db import get_db
 
 from plprofiler import plprofiler, plprofiler_tool
 
@@ -17,6 +19,9 @@ def connect():
         password = request.form['password']
         database = request.form['dbname']
         query    = request.form['query']
+        name     = request.form['result_name']
+        title    = request.form['result_title']
+        desc     = request.form['result_description']
 
         error = None
 
@@ -28,29 +33,42 @@ def connect():
             error = 'Database is required'
         if not username:
             error = 'Username is required.'
+        if not query:
+            error = 'query is required'
+
+        if not name:
+            name = 'current'
+        if not title:
+            title = 'PL PROFILER REPORT for %s' %(name, )
+        if not desc:
+            desc = ("<h1>PL Profiler Report for %s</h1>\n" +
+                    "<p>\n<!-- description here -->\n</p>") %(name, )
 
         args = ['--command']
-        args.append(query)
+        args.append(str(query))
+
         args.append('-h')
-        args.append(host)
+        args.append(str(host))
+
         args.append('-p')
-        args.append(port)
+        args.append(str(port))
+
         args.append('-d')
-        args.append(database)
+        args.append(str(database))
+
         args.append('-U')
-        args.append(username)
+        args.append(str(username))
 
         args.append('--name')
-        args.append('test')
+        args.append(str(name))
 
         args.append('--title')
-        args.append('test title')
+        args.append(str(title))
 
         args.append('--desc')
-        args.append('test description')
+        args.append(str(desc))
 
         dirpath = os.path.join(current_app.root_path, 'templates/test.html')
-        print(dirpath)
         args.append('--output')
         args.append(dirpath)
 
@@ -59,8 +77,12 @@ def connect():
             if a is 0:
                 return render_template('/test.html')
 
-            print('a: ' + a + '\n')
+            elif a is 1:
+                error = "Could not connect to server"
         except Exception as err:
             print('error: ' + str(err) + '\n')
 
-    return render_template('connect.html')
+    db = get_db();
+
+    stored_servers = db.execute('SELECT * FROM databases d').fetchall()
+    return render_template('connect.html', server_list=stored_servers)

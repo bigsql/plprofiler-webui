@@ -3,11 +3,12 @@ from flask import (
 )
 from db import get_db
 
-bp = Blueprint('registerDB', __name__, url_prefix='/registerDB')
+bp = Blueprint('manage_databases', __name__, url_prefix='/manage_databases')
 
-@bp.route('/', methods=('GET', 'POST'))
+@bp.route('/registerDB', methods=('GET', 'POST'))
 def registerDB():
     if request.method == 'POST':
+        servername = request.form['servername']
         host = request.form['host']
         port = request.form['port']
         dbname = request.form['dbname']
@@ -27,16 +28,16 @@ def registerDB():
 
         elif db.execute('SELECT * \
                          FROM databases AS d \
-                         WHERE d.host = ? AND \
-                               d.port = ? AND \
-                               d.name = ?', (host, port, dbname,)
+                         WHERE d.servername = ?',
+                         (servername,)
                         ).fetchone() is not None:
-                            error = 'A database with those values is already stored'
+                            error = 'A database with that name is already stored'
 
         if error is None:
             db.execute(
-                'INSERT INTO databases (host, port, name) VALUES (?, ?, ?)',
-                (host, port, dbname)
+                'INSERT INTO databases (servername, host, port, name) \
+                                VALUES (?, ?, ?, ?)',
+                                       (servername, host, port, dbname)
             )
 
             db.commit()

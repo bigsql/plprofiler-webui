@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>test title</title>
+  <title>PL PROFILER REPORT for current</title>
 
   <script language="javascript">
     // ----
@@ -117,7 +117,10 @@
 
 </head>
 <body bgcolor="#ffffff" onload="set_stat_bars()">
-test description
+<h1>PL Profiler Report for current</h1>
+<p>
+<!-- description here -->
+</p>
 <h2>PL/pgSQL Call Graph</h2>
 <center>
 <?xml version="1.0" standalone="no"?>
@@ -297,36 +300,36 @@ test description
 ]]>
 </script>
 <rect x="0.0" y="0" width="1200.0" height="130.0" fill="url(#background)"  />
-<text text-anchor="middle" x="600.00" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >test title</text>
+<text text-anchor="middle" x="600.00" y="24" font-size="17" font-family="Verdana" fill="rgb(0,0,0)"  >PL PROFILER REPORT for current</text>
 <text text-anchor="" x="10.00" y="113" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="details" > </text>
 <text text-anchor="" x="10.00" y="24" font-size="12" font-family="Verdana" fill="rgb(0,0,0)" id="unzoom" onclick="unzoom()" style="opacity:0.0;cursor:pointer" >Reset Zoom</text>
-<g class="func_g" onmouseover="s('public.tpcb_fetch_abalance() oid=16608 (13,153 samples, 34.88%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb_fetch_abalance() oid=16608 (13,153 samples, 34.88%)</title><rect x="748.5" y="33" width="411.6" height="15.0" fill="rgb(207,217,25)" rx="2" ry="2" />
-<text text-anchor="" x="751.50" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >public.tpcb_fetch_abalance() oid=16608</text>
+<g class="func_g" onmouseover="s('public.tpcb_upd_tellers() oid=16609 (354 samples, 0.98%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb_upd_tellers() oid=16609 (354 samples, 0.98%)</title><rect x="1178.5" y="49" width="11.5" height="15.0" fill="rgb(221,100,10)" rx="2" ry="2" />
+<text text-anchor="" x="1181.47" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
-<g class="func_g" onmouseover="s('public.tpcb_upd_branches() oid=16610 (430 samples, 1.14%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb_upd_branches() oid=16610 (430 samples, 1.14%)</title><rect x="1160.1" y="49" width="13.5" height="15.0" fill="rgb(211,52,38)" rx="2" ry="2" />
-<text text-anchor="" x="1163.14" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+<g class="func_g" onmouseover="s('public.tpcb_ins_history() oid=16611 (174 samples, 0.48%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb_ins_history() oid=16611 (174 samples, 0.48%)</title><rect x="21.9" y="49" width="5.7" height="15.0" fill="rgb(247,43,41)" rx="2" ry="2" />
+<text text-anchor="" x="24.92" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
 </g>
-<g class="func_g" onmouseover="s('public.tpcb_ins_history() oid=16611 (588 samples, 1.56%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb_ins_history() oid=16611 (588 samples, 1.56%)</title><rect x="28.3" y="49" width="18.4" height="15.0" fill="rgb(212,118,41)" rx="2" ry="2" />
-<text text-anchor="" x="31.28" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
-</g>
-<g class="func_g" onmouseover="s('public.tpcb_upd_tellers() oid=16609 (524 samples, 1.39%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb_upd_tellers() oid=16609 (524 samples, 1.39%)</title><rect x="1173.6" y="49" width="16.4" height="15.0" fill="rgb(239,119,7)" rx="2" ry="2" />
-<text text-anchor="" x="1176.60" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
-</g>
-<g class="func_g" onmouseover="s('all (37,704 samples, 100%)')" onmouseout="c()" onclick="zoom(this)">
-<title>all (37,704 samples, 100%)</title><rect x="10.0" y="81" width="1180.0" height="15.0" fill="rgb(247,225,2)" rx="2" ry="2" />
-<text text-anchor="" x="13.00" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
-</g>
-<g class="func_g" onmouseover="s('public.tpcb() oid=16606 (37,704 samples, 100.00%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb() oid=16606 (37,704 samples, 100.00%)</title><rect x="10.0" y="65" width="1180.0" height="15.0" fill="rgb(243,22,54)" rx="2" ry="2" />
+<g class="func_g" onmouseover="s('public.tpcb() oid=16606 (36,231 samples, 100.00%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb() oid=16606 (36,231 samples, 100.00%)</title><rect x="10.0" y="65" width="1180.0" height="15.0" fill="rgb(233,91,54)" rx="2" ry="2" />
 <text text-anchor="" x="13.00" y="75.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >public.tpcb() oid=16606</text>
 </g>
-<g class="func_g" onmouseover="s('public.tpcb_upd_accounts() oid=16607 (35,578 samples, 94.36%)')" onmouseout="c()" onclick="zoom(this)">
-<title>public.tpcb_upd_accounts() oid=16607 (35,578 samples, 94.36%)</title><rect x="46.7" y="49" width="1113.4" height="15.0" fill="rgb(217,89,49)" rx="2" ry="2" />
-<text text-anchor="" x="49.68" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >public.tpcb_upd_accounts() oid=16607</text>
+<g class="func_g" onmouseover="s('all (36,231 samples, 100%)')" onmouseout="c()" onclick="zoom(this)">
+<title>all (36,231 samples, 100%)</title><rect x="10.0" y="81" width="1180.0" height="15.0" fill="rgb(222,125,27)" rx="2" ry="2" />
+<text text-anchor="" x="13.00" y="91.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s('public.tpcb_upd_branches() oid=16610 (235 samples, 0.65%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb_upd_branches() oid=16610 (235 samples, 0.65%)</title><rect x="1170.8" y="49" width="7.7" height="15.0" fill="rgb(208,141,15)" rx="2" ry="2" />
+<text text-anchor="" x="1173.82" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  ></text>
+</g>
+<g class="func_g" onmouseover="s('public.tpcb_fetch_abalance() oid=16608 (14,433 samples, 39.84%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb_fetch_abalance() oid=16608 (14,433 samples, 39.84%)</title><rect x="700.8" y="33" width="470.0" height="15.0" fill="rgb(246,139,24)" rx="2" ry="2" />
+<text text-anchor="" x="703.75" y="43.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >public.tpcb_fetch_abalance() oid=16608</text>
+</g>
+<g class="func_g" onmouseover="s('public.tpcb_upd_accounts() oid=16607 (35,102 samples, 96.88%)')" onmouseout="c()" onclick="zoom(this)">
+<title>public.tpcb_upd_accounts() oid=16607 (35,102 samples, 96.88%)</title><rect x="27.6" y="49" width="1143.2" height="15.0" fill="rgb(208,25,49)" rx="2" ry="2" />
+<text text-anchor="" x="30.59" y="59.5" font-size="12" font-family="Verdana" fill="rgb(0,0,0)"  >public.tpcb_upd_accounts() oid=16607</text>
 </g>
 </svg>
 
@@ -345,8 +348,8 @@ test description
 <h3>Function public.tpcb_upd_accounts() oid=16607 (<a id="toggle_16607"
                 href="javascript:toggle_div('toggle_16607', 'div_16607')">show</a>)</h3>
 <p>
-self_time = 22,425 &micro;s<br/>
-total_time = 35,578 &micro;s
+self_time = 20,669 &micro;s<br/>
+total_time = 35,102 &micro;s
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -372,8 +375,8 @@ total_time = 35,578 &micro;s
   <tr>
     <td align="right"><code>0</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">35578</td>
-    <td align="right">35578</td>
+    <td class="bar" align="right">35102</td>
+    <td align="right">35102</td>
     <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
   </tr>
   <tr>
@@ -393,8 +396,8 @@ total_time = 35,578 &micro;s
   <tr>
     <td align="right"><code>3</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">22278</td>
-    <td align="right">22278</td>
+    <td class="bar" align="right">20458</td>
+    <td align="right">20458</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UPDATE&nbsp;pgbench_accounts&nbsp;SET&nbsp;abalance&nbsp;=&nbsp;abalance&nbsp;+&nbsp;par_delta</code></td>
   </tr>
   <tr>
@@ -407,8 +410,8 @@ total_time = 35,578 &micro;s
   <tr>
     <td align="right"><code>5</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">13299</td>
-    <td align="right">13299</td>
+    <td class="bar" align="right">14642</td>
+    <td align="right">14642</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;tpcb_fetch_abalance(par_aid);</code></td>
   </tr>
   <tr>
@@ -432,8 +435,8 @@ total_time = 35,578 &micro;s
 <h3>Function public.tpcb_fetch_abalance() oid=16608 (<a id="toggle_16608"
                 href="javascript:toggle_div('toggle_16608', 'div_16608')">show</a>)</h3>
 <p>
-self_time = 13,153 &micro;s<br/>
-total_time = 13,153 &micro;s
+self_time = 14,433 &micro;s<br/>
+total_time = 14,433 &micro;s
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -459,8 +462,8 @@ total_time = 13,153 &micro;s
   <tr>
     <td align="right"><code>0</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">13153</td>
-    <td align="right">13153</td>
+    <td class="bar" align="right">14433</td>
+    <td align="right">14433</td>
     <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
   </tr>
   <tr>
@@ -494,8 +497,8 @@ total_time = 13,153 &micro;s
   <tr>
     <td align="right"><code>5</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">13151</td>
-    <td align="right">13151</td>
+    <td class="bar" align="right">14431</td>
+    <td align="right">14431</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;abalance&nbsp;FROM&nbsp;pgbench_accounts&nbsp;WHERE&nbsp;aid&nbsp;=&nbsp;par_aid;</code></td>
   </tr>
   <tr>
@@ -515,92 +518,12 @@ total_time = 13,153 &micro;s
 </table>
 </center>
 </div>
-<a name="A16611" />
-<h3>Function public.tpcb_ins_history() oid=16611 (<a id="toggle_16611"
-                href="javascript:toggle_div('toggle_16611', 'div_16611')">show</a>)</h3>
-<p>
-self_time = 588 &micro;s<br/>
-total_time = 588 &micro;s
-</p>
-<table border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td valign="top"><b><code>public.tpcb_ins_history&nbsp;</code></b></td>
-    <td><b><code>(par_aid integer,<br/>&nbsp;par_tid integer,<br/>&nbsp;par_bid integer,<br/>&nbsp;par_delta integer)</code></b></td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <b><code>&nbsp;&nbsp;&nbsp;&nbsp;RETURNS&nbsp;void</code></b>
-    </td>
-  </tr>
-</table>
-<div id="div_16611" style="display: none">
-<center>
-<table class="linestats" border="1" cellpadding="0" cellspacing="0" width="80%">
-  <tr>
-    <th width="10%">Line</th>
-    <th width="10%">exec_count</th>
-    <th width="10%">total_time</th>
-    <th width="10%">longest_time</th>
-    <th width="60%">Source Code</th>
-  </tr>
-  <tr>
-    <td align="right"><code>0</code></td>
-    <td align="right">1</td>
-    <td class="bar" align="right">588</td>
-    <td align="right">588</td>
-    <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>1</code></td>
-    <td align="right">0</td>
-    <td class="bar" align="right">0</td>
-    <td align="right">0</td>
-    <td align="left"><code></code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>2</code></td>
-    <td align="right">0</td>
-    <td class="bar" align="right">0</td>
-    <td align="right">0</td>
-    <td align="left"><code>BEGIN</code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>3</code></td>
-    <td align="right">1</td>
-    <td class="bar" align="right">586</td>
-    <td align="right">586</td>
-    <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;INTO&nbsp;pgbench_history&nbsp;(tid,&nbsp;bid,&nbsp;aid,&nbsp;delta,&nbsp;mtime)</code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>4</code></td>
-    <td align="right">0</td>
-    <td class="bar" align="right">0</td>
-    <td align="right">0</td>
-    <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES&nbsp;(par_tid,&nbsp;par_bid,&nbsp;par_aid,&nbsp;par_delta,&nbsp;CURRENT_TIMESTAMP);</code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>5</code></td>
-    <td align="right">0</td>
-    <td class="bar" align="right">0</td>
-    <td align="right">0</td>
-    <td align="left"><code>END;</code></td>
-  </tr>
-  <tr>
-    <td align="right"><code>6</code></td>
-    <td align="right">0</td>
-    <td class="bar" align="right">0</td>
-    <td align="right">0</td>
-    <td align="left"><code></code></td>
-  </tr>
-</table>
-</center>
-</div>
 <a name="A16606" />
 <h3>Function public.tpcb() oid=16606 (<a id="toggle_16606"
                 href="javascript:toggle_div('toggle_16606', 'div_16606')">show</a>)</h3>
 <p>
-self_time = 584 &micro;s<br/>
-total_time = 37,704 &micro;s
+self_time = 366 &micro;s<br/>
+total_time = 36,231 &micro;s
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -626,8 +549,8 @@ total_time = 37,704 &micro;s
   <tr>
     <td align="right"><code>0</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">37704</td>
-    <td align="right">37704</td>
+    <td class="bar" align="right">36231</td>
+    <td align="right">36231</td>
     <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
   </tr>
   <tr>
@@ -661,36 +584,36 @@ total_time = 37,704 &micro;s
   <tr>
     <td align="right"><code>5</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">35746</td>
-    <td align="right">35746</td>
+    <td class="bar" align="right">35211</td>
+    <td align="right">35211</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_abalance&nbsp;=&nbsp;tpcb_upd_accounts(par_aid,&nbsp;par_delta);</code></td>
   </tr>
   <tr>
     <td align="right"><code>6</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">751</td>
-    <td align="right">751</td>
+    <td class="bar" align="right">493</td>
+    <td align="right">493</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;tpcb_upd_tellers(par_tid,&nbsp;par_delta);</code></td>
   </tr>
   <tr>
     <td align="right"><code>7</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">524</td>
-    <td align="right">524</td>
+    <td class="bar" align="right">291</td>
+    <td align="right">291</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;tpcb_upd_branches(par_bid,&nbsp;par_delta);</code></td>
   </tr>
   <tr>
     <td align="right"><code>8</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">671</td>
-    <td align="right">671</td>
+    <td class="bar" align="right">227</td>
+    <td align="right">227</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;tpcb_ins_history(par_aid,&nbsp;par_tid,&nbsp;par_bid,&nbsp;par_delta);</code></td>
   </tr>
   <tr>
     <td align="right"><code>9</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">1</td>
-    <td align="right">1</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;var_abalance;</code></td>
   </tr>
   <tr>
@@ -714,8 +637,8 @@ total_time = 37,704 &micro;s
 <h3>Function public.tpcb_upd_tellers() oid=16609 (<a id="toggle_16609"
                 href="javascript:toggle_div('toggle_16609', 'div_16609')">show</a>)</h3>
 <p>
-self_time = 524 &micro;s<br/>
-total_time = 524 &micro;s
+self_time = 354 &micro;s<br/>
+total_time = 354 &micro;s
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -741,8 +664,8 @@ total_time = 524 &micro;s
   <tr>
     <td align="right"><code>0</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">524</td>
-    <td align="right">524</td>
+    <td class="bar" align="right">354</td>
+    <td align="right">354</td>
     <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
   </tr>
   <tr>
@@ -762,8 +685,8 @@ total_time = 524 &micro;s
   <tr>
     <td align="right"><code>3</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">519</td>
-    <td align="right">519</td>
+    <td class="bar" align="right">350</td>
+    <td align="right">350</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UPDATE&nbsp;pgbench_tellers&nbsp;SET&nbsp;tbalance&nbsp;=&nbsp;tbalance&nbsp;+&nbsp;par_delta</code></td>
   </tr>
   <tr>
@@ -794,8 +717,8 @@ total_time = 524 &micro;s
 <h3>Function public.tpcb_upd_branches() oid=16610 (<a id="toggle_16610"
                 href="javascript:toggle_div('toggle_16610', 'div_16610')">show</a>)</h3>
 <p>
-self_time = 430 &micro;s<br/>
-total_time = 430 &micro;s
+self_time = 235 &micro;s<br/>
+total_time = 235 &micro;s
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -821,8 +744,8 @@ total_time = 430 &micro;s
   <tr>
     <td align="right"><code>0</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">430</td>
-    <td align="right">430</td>
+    <td class="bar" align="right">235</td>
+    <td align="right">235</td>
     <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
   </tr>
   <tr>
@@ -842,8 +765,8 @@ total_time = 430 &micro;s
   <tr>
     <td align="right"><code>3</code></td>
     <td align="right">1</td>
-    <td class="bar" align="right">428</td>
-    <td align="right">428</td>
+    <td class="bar" align="right">234</td>
+    <td align="right">234</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UPDATE&nbsp;pgbench_branches&nbsp;SET&nbsp;bbalance&nbsp;=&nbsp;bbalance&nbsp;+&nbsp;par_delta</code></td>
   </tr>
   <tr>
@@ -852,6 +775,86 @@ total_time = 430 &micro;s
     <td class="bar" align="right">0</td>
     <td align="right">0</td>
     <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;bid&nbsp;=&nbsp;par_bid;</code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>5</code></td>
+    <td align="right">0</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
+    <td align="left"><code>END;</code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>6</code></td>
+    <td align="right">0</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
+    <td align="left"><code></code></td>
+  </tr>
+</table>
+</center>
+</div>
+<a name="A16611" />
+<h3>Function public.tpcb_ins_history() oid=16611 (<a id="toggle_16611"
+                href="javascript:toggle_div('toggle_16611', 'div_16611')">show</a>)</h3>
+<p>
+self_time = 174 &micro;s<br/>
+total_time = 174 &micro;s
+</p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><b><code>public.tpcb_ins_history&nbsp;</code></b></td>
+    <td><b><code>(par_aid integer,<br/>&nbsp;par_tid integer,<br/>&nbsp;par_bid integer,<br/>&nbsp;par_delta integer)</code></b></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <b><code>&nbsp;&nbsp;&nbsp;&nbsp;RETURNS&nbsp;void</code></b>
+    </td>
+  </tr>
+</table>
+<div id="div_16611" style="display: none">
+<center>
+<table class="linestats" border="1" cellpadding="0" cellspacing="0" width="80%">
+  <tr>
+    <th width="10%">Line</th>
+    <th width="10%">exec_count</th>
+    <th width="10%">total_time</th>
+    <th width="10%">longest_time</th>
+    <th width="60%">Source Code</th>
+  </tr>
+  <tr>
+    <td align="right"><code>0</code></td>
+    <td align="right">1</td>
+    <td class="bar" align="right">174</td>
+    <td align="right">174</td>
+    <td align="left"><code><b>--&nbsp;Function&nbsp;Totals</b></code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>1</code></td>
+    <td align="right">0</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
+    <td align="left"><code></code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>2</code></td>
+    <td align="right">0</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
+    <td align="left"><code>BEGIN</code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>3</code></td>
+    <td align="right">1</td>
+    <td class="bar" align="right">173</td>
+    <td align="right">173</td>
+    <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;INTO&nbsp;pgbench_history&nbsp;(tid,&nbsp;bid,&nbsp;aid,&nbsp;delta,&nbsp;mtime)</code></td>
+  </tr>
+  <tr>
+    <td align="right"><code>4</code></td>
+    <td align="right">0</td>
+    <td class="bar" align="right">0</td>
+    <td align="right">0</td>
+    <td align="left"><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES&nbsp;(par_tid,&nbsp;par_bid,&nbsp;par_aid,&nbsp;par_delta,&nbsp;CURRENT_TIMESTAMP);</code></td>
   </tr>
   <tr>
     <td align="right"><code>5</code></td>

@@ -33,8 +33,12 @@ def create_app(test_config=None):
     app.register_blueprint(connect.bp)
 
     # register the blueprint
-    from . import registerDB
-    app.register_blueprint(registerDB.bp)
+    from . import manage_databases
+    app.register_blueprint(manage_databases.bp)
+
+    # register the blueprint
+    from . import monitor
+    app.register_blueprint(monitor.bp)
 
     from . import home
     app.register_blueprint(home.bp)

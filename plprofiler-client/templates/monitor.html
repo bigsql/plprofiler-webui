@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Global monitoring {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <script type="text/javascript">
+    function updateflags() {
+      var dbmenu = document.getElementById("servername");
+      var dbDetails = dbmenu.options[dbmenu.selectedIndex].value.split(", ");
+      document.getElementById("host").value = dbDetails[0];
+      document.getElementById("port").value = dbDetails[1];
+      document.getElementById("dbname").value = dbDetails[2];
+    }
+  </script>
+
+  <form method="post" name="connect_form" value="connect">
+    <ul style="list-style-type:none;">
+      <li>
+        <label for="servername"> Select: </label>
+        <select name="servername" id="servername" width="300px" onchange="updateflags()">
+          {% for server in server_list %}
+          <option value="{{ server['host'] }}, {{ server['port'] }}, {{ server['name'] }}"> {{ server['servername'] }} </option>
+          {% endfor %}
+        </select>
+      </li>
+
+      <li>
+        <label for="host"> Host: </label>
+        <input id="host" name="host" value="{{ session['connoptions']['host'] }}" required>
+      </li>
+
+      <li>
+        <label for="port"> Port: </label>
+        <input id="port" name="port" value="{{ session['connoptions']['port'] }}" required>
+      </li>
+
+      <li>
+        <label for="dbname"> Database Name: </label>
+        <input id="dbname" name="dbname" value="{{ session['connoptions']['database'] }}" required>
+      </li>
+
+      <li>
+        <label for="username">Username: </label>
+        <input name="username" id="username" value="{{ session['connoptions']['user'] }}" required>
+      </li>
+
+      <li>
+        <input type="submit" name="submit" value="connect">
+      </li>
+
+    </ul>
+  </form>
+
+  <p>
+    <h2> Profiling Options </h2>
+
+    <label for="present"> plprofiler present: </label>
+    <input id="present" name="present" value="{{ session['plprofiler_present'] }}" readonly>
+
+    <label for="global"> global profiling enabled: </label>
+    <input id="global" name="global" value="{{ session['global_enabled'] }}" readonly>
+
+    <form method="POST" name="global_profiling_form">
+      <label for="enable_global"> global profiling: </label>
+      <input type="submit" name="submit" value="enable_global">
+      <input type="submit" name="submit" value="disable_global">
+    </form>
+
+    <article>
+      <label for="interval"> Interval: </label>
+      <input id="interval" name="interval" value= "{{ session['interval'] }}" readonly>
+    </article>
+  </p>
+
+  <p>
+    <form method="POST" name="reset_form">
+      <input type="submit" name="submit" value="reset shared data">
+    </form>
+  </p>
+
+  <p>
+    <h2> Save results </h2>
+    <form method="POST" name="save">
+      <ul style="list-style-type:none;">
+        <li>
+          <label for="name"> Name: </label>
+          <input id="name" name="name">
+        </li>
+
+        <li>
+          <label for="title"> Title: </label>
+          <input id="title" name="title">
+        </li>
+
+        <li>
+          <label for="desc"> Description: </label>
+          <input id="desc" name="desc">
+        </li>
+
+        <li>
+          <label for="force"> Overwrite saved: </label>
+          <input type="checkbox" name="force" value="True">
+        </li>
+
+        <input type="submit" name="submit" value="save">
+      </ul>
+    </form>
+  </p>
+
+  <p>
+    <label for="error_log"> Error log: </label>
+    <textarea name="error_log" id="error_log" rows="3" cols="78" readonly> {{ session['error'] }} </textarea>
+  </p>
+{% endblock %}
