@@ -1,8 +1,28 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - plprofiler client </title>
+<title>{% block title %}{% endblock %}</title>
+
+<style>
+  input[type=submit] {
+    background-color: #f5b042;
+    border: none;
+    color: white;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+</style>
 
 <nav>
-  <h1>plprofiler client</h1>
+  <h1>
+    <a href="{{ url_for ('home.homepage')}}"><img src="{{ url_for('static', filename='plprofiler.png') }}" width="32" height="32"></a>
+    Pl/Profiler Client
+  </h1>
 </nav>
 <section class="content">
   <header>

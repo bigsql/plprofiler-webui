@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %} homepage {% endblock %}</h1>
+  <h3>{% block title %} Homepage {% endblock %}</h3>
 {% endblock %}
 
 {% block content %}
   <form method="post">
     <ul style="list-style-type:none;">
       <li>
-        <a href="{{ url_for ('manage_databases.registerDB') }}"> Manage databases</a>
+        <a href="{{ url_for ('define_connections.register_connection') }}"> Define Connections</a>
       </li>
 
       <li>
-        <a href="{{ url_for ('connect.connect') }}"> Connect and profile a query </a>
+        <a href="{{ url_for ('direct_profile.direct_profile') }}"> Connect and Profile an Individual Query </a>
       </li>
 
       <li>

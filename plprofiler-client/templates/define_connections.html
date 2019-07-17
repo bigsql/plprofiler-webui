@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+  <h3>{% block title %} Register a Connection {% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+  <style>
+    input {
+      width: 50%;
+    }
+
+  </style>
+
+  <form method="post">
+
+    <table style="width:75%">
+      <tr>
+        <td style="width:15%"><label for="servername"> Server Name: </label></td>
+        <td><input name="servername" id="servername" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="host">Host: </label></td>
+        <td><input name="host" id="host" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="port">Port: </label></td>
+        <td><input name="port" id="port" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="dbname">Database Name: </label></td>
+        <td><input name="dbname" id="dbname" required></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" value="Test Connection and Save">
+        </td>
+      </tr>
+  </form>
+{% endblock %}

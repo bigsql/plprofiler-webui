@@ -3,10 +3,10 @@ from flask import (
 )
 from db import get_db
 
-bp = Blueprint('manage_databases', __name__, url_prefix='/manage_databases')
+bp = Blueprint('define_connections', __name__, url_prefix='/define_connections')
 
-@bp.route('/registerDB', methods=('GET', 'POST'))
-def registerDB():
+@bp.route('/', methods=('GET', 'POST'))
+def register_connection():
     if request.method == 'POST':
         servername = request.form['servername']
         host = request.form['host']
@@ -46,4 +46,4 @@ def registerDB():
 
         flash(error)
 
-    return render_template('registerDB.html')
+    return render_template('define_connections.html')

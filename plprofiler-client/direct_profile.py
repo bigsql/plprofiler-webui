@@ -8,10 +8,10 @@ from db import get_db
 
 from plprofiler import plprofiler, plprofiler_tool
 
-bp = Blueprint('connect', __name__, url_prefix='/connect')
+bp = Blueprint('direct_profile', __name__, url_prefix='/direct_profile')
 
 @bp.route('/', methods=('GET', 'POST'))
-def connect():
+def direct_profile():
     if request.method == 'POST':
         host     = request.form['host']
         port     = request.form['port']
@@ -85,4 +85,4 @@ def connect():
     db = get_db();
 
     stored_servers = db.execute('SELECT * FROM databases d').fetchall()
-    return render_template('connect.html', server_list=stored_servers)
+    return render_template('direct_profile.html', server_list=stored_servers)

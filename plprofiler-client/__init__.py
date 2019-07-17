@@ -29,12 +29,12 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # register the blueprint
-    from . import connect
-    app.register_blueprint(connect.bp)
+    from . import direct_profile
+    app.register_blueprint(direct_profile.bp)
 
     # register the blueprint
-    from . import manage_databases
-    app.register_blueprint(manage_databases.bp)
+    from . import define_connections
+    app.register_blueprint(define_connections.bp)
 
     # register the blueprint
     from . import monitor

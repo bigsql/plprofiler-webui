@@ -17,7 +17,7 @@ def monitor():
     if request.method == 'POST':
 
         # Connect to database, check for plprofiler extension, check if global profiling enabled
-        if request.form['submit'] == 'connect':
+        if request.form['submit'] == 'Connect':
 
             # Set options for connecting
             connoptions = {}
@@ -33,11 +33,11 @@ def monitor():
 
                 plp = plprofiler()
                 plp.connect(connoptions)
+                session['connected'] = True
                 session['plprofiler_present'] = True
 
                 # Check if global profiling is enabled
                 session['global_enabled'] = check_global_enabled(plp)
-                session['interval'] = get_monitoring_interval(plp)
             except Exception as err:
                 if str(err).find('plprofiler extension not found'):
                     session['plprofiler_present'] = False
@@ -50,11 +50,12 @@ def monitor():
                                    session=session)
 
         # Enable global profiling
-        elif request.form['submit'] == 'enable_global':
+        elif request.form['submit'] == 'Enable':
+            session['interval'] = request.form['interval']
+
             try:
-                plp.enable_monitor()
+                plp.enable_monitor(opt_interval=session['interval'])
                 session['global_enabled'] = check_global_enabled(plp)
-                session['interval'] = get_monitoring_interval(plp)
             except Exception as err:
                 print(str(err) + '\n')
                 session['error'] = str(err)
@@ -64,11 +65,10 @@ def monitor():
                                    session=session)
 
         # Disable global profiling
-        elif request.form['submit'] == 'disable_global':
+        elif request.form['submit'] == 'Disable':
             try:
                 plp.disable_monitor()
                 session['global_enabled'] = check_global_enabled(plp)
-                session['interval'] = get_monitoring_interval(plp)
             except Exception as err:
                 print(str(err) + '\n')
                 session['error'] = str(err)
@@ -77,7 +77,8 @@ def monitor():
                                    server_list=stored_servers,
                                    session=session)
 
-        elif request.form['submit'] == 'reset':
+        # Reset shared datasets
+        elif request.form['submit'] == 'Reset Shared Data':
             try:
                 plp.reset_shared()
             except Exception as err:
@@ -124,15 +125,16 @@ def monitor():
                                    session=session)
 
     if request.method == 'GET':
-        session['plprofiler_present'] = None
-        session['global_enabled'] = None
-        session['interval'] = None
-        session['error'] = ""
         connoptions = {}
         connoptions['host']     = ''
         connoptions['port']     = ''
         connoptions['database'] = ''
+
         session['connoptions']  = connoptions
+        session['plprofiler_present'] = None
+        session['global_enabled'] = None
+        session['interval'] = 10
+        session['connected'] = None
 
     session['error'] = ''
     return render_template('monitor.html',
@@ -143,9 +145,4 @@ def monitor():
 def check_global_enabled(plp):
     cur = plp.dbconn.cursor()
     cur.execute("""SELECT pl_profiler_get_enabled_global()""")
-    return cur.fetchone()[0]
-
-def get_monitoring_interval(plp):
-    cur = plp.dbconn.cursor()
-    cur.execute("""SELECT pl_profiler_get_collect_interval()""")
     return cur.fetchone()[0]

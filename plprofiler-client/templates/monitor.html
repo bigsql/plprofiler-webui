@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %} Global monitoring {% endblock %}</h1>
+  <h3>{% block title %} Global monitoring {% endblock %}</h3>
 {% endblock %}
 
 {% block content %}
+  <style>
+    input {
+      width: 50%
+    }
+
+    /*td {
+      border: 1px solid black;
+    }*/
+  </style>
+
   <script type="text/javascript">
     function updateflags() {
       var dbmenu = document.getElementById("servername");
@@ -15,97 +25,124 @@
     }
   </script>
 
-  <form method="post" name="connect_form" value="connect">
-    <ul style="list-style-type:none;">
-      <li>
-        <label for="servername"> Select: </label>
-        <select name="servername" id="servername" width="300px" onchange="updateflags()">
-          {% for server in server_list %}
-          <option value="{{ server['host'] }}, {{ server['port'] }}, {{ server['name'] }}"> {{ server['servername'] }} </option>
-          {% endfor %}
-        </select>
-      </li>
+  <form method="post">
+    <table style="width: 75%">
+      <tr>
+        <td><label for="servername"> Select a Connection: </label></td>
+        <td>
+          <select name="servername" style="width: 50%" id="servername" onchange="updateflags()">
+            {% for server in server_list %}
+              <option value="{{ server['host'] }}, {{ server['port'] }}, {{ server['name'] }}"> {{ server['servername'] }} </option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
 
-      <li>
-        <label for="host"> Host: </label>
-        <input id="host" name="host" value="{{ session['connoptions']['host'] }}" required>
-      </li>
+      <tr>
+        <td style="width: 15%"><label for="host"> Host: </label></td>
+        <td><input id="host" name="host" value="{{ session['connoptions']['host'] }}" required></td>
+      </tr>
 
-      <li>
-        <label for="port"> Port: </label>
-        <input id="port" name="port" value="{{ session['connoptions']['port'] }}" required>
-      </li>
+      <tr>
+        <td><label for="port"> Port: </label></td>
+        <td><input id="port" name="port" value="{{ session['connoptions']['port'] }}" required></td>
+      </tr>
 
-      <li>
-        <label for="dbname"> Database Name: </label>
-        <input id="dbname" name="dbname" value="{{ session['connoptions']['database'] }}" required>
-      </li>
+      <tr>
+        <td><label for="dbname"> Database Name: </label></td>
+        <td><input id="dbname" name="dbname" value="{{ session['connoptions']['database'] }}" required></td>
+      </tr>
 
-      <li>
-        <label for="username">Username: </label>
-        <input name="username" id="username" value="{{ session['connoptions']['user'] }}" required>
-      </li>
+      <tr>
+        <td><label for="username">Username: </label></td>
+        <td><input name="username" id="username" value="{{ session['connoptions']['user'] }}" required></td>
+      </tr>
 
-      <li>
-        <input type="submit" name="submit" value="connect">
-      </li>
+      <tr>
+        <td></td>
+        <td><input type="submit" name="submit" value="Connect"></td>
+      </tr>
 
-    </ul>
+    </table>
   </form>
 
   <p>
-    <h2> Profiling Options </h2>
+    <h3> Profiling Options </h3>
 
-    <label for="present"> plprofiler present: </label>
-    <input id="present" name="present" value="{{ session['plprofiler_present'] }}" readonly>
+    <table style="width: 75%">
+      <tr>
+        <td><label for="connected"> Connected: </label></td>
+        <td colspan=3><input type="checkbox" id="connected" name="connected" {{ 'checked="checked"' if session['connected'] else "" }} disabled></td>
+      </tr>
 
-    <label for="global"> global profiling enabled: </label>
-    <input id="global" name="global" value="{{ session['global_enabled'] }}" readonly>
+      <tr>
+        <td><label for="present"> Pl/Profiler Present: </label></td>
+        <td colspan=3><input type="checkbox" id="present" name="present" {{ 'checked="checked"' if session['plprofiler_present'] else "" }} disabled></td>
+      </tr>
 
-    <form method="POST" name="global_profiling_form">
-      <label for="enable_global"> global profiling: </label>
-      <input type="submit" name="submit" value="enable_global">
-      <input type="submit" name="submit" value="disable_global">
-    </form>
+      <tr>
+        <td style="width:15%"><label for="global"> Profiling Enabled: </label></td>
+        <td colspan=3><input type="checkbox" id="global" name="global" {{ 'checked="checked"' if session['global_enabled'] else "" }} disabled></td>
+      </tr>
 
-    <article>
-      <label for="interval"> Interval: </label>
-      <input id="interval" name="interval" value= "{{ session['interval'] }}" readonly>
-    </article>
+      <tr>
+        <form method="POST" name="global_profiling_form">
+          <td><label for="enable_global"> Global Profiling: </label></td>
+          <td style="width:22%"><input style="width:100%" type="submit" name="submit" value="Enable"></td>
+          <td style="width:22%"><input style="width:100%" type="submit" name="submit" value="Disable"></td>
+          <td style="width:56%"> </td>
+
+        </tr>
+
+        <tr>
+          <td><label for="interval"> Interval: </label></td>
+          <td colspan=3><input id="interval" name="interval" value= "{{ session['interval'] }}" ></td>
+        </tr>
+      </form>
+    </table>
   </p>
 
   <p>
-    <form method="POST" name="reset_form">
-      <input type="submit" name="submit" value="reset shared data">
-    </form>
+    <h3> Reset Shared Data </h3>
+    <table style="width:75%">
+      <form method="POST" name="reset_form">
+        <tr>
+          <td style="width: 15%"></td>
+          <td><input type="submit" name="submit" value="Reset Shared Data"></td>
+        </tr>
+      </form>
+    </table>
   </p>
 
   <p>
-    <h2> Save results </h2>
+    <h3> Save & Make a Dataset </h3>
     <form method="POST" name="save">
-      <ul style="list-style-type:none;">
-        <li>
-          <label for="name"> Name: </label>
-          <input id="name" name="name">
-        </li>
+      <table style="width: 75%">
+        <tr>
+          <td style="width:15%"><label for="name"> Name: </label></td>
+          <td><input id="name" name="name"></td>
+        </tr>
 
-        <li>
-          <label for="title"> Title: </label>
-          <input id="title" name="title">
-        </li>
+        <tr>
+          <td><label for="title"> Title: </label></td>
+          <td><input id="title" name="title"></td>
+        </tr>
 
-        <li>
-          <label for="desc"> Description: </label>
-          <input id="desc" name="desc">
-        </li>
+        <tr>
+          <td><label for="desc"> Description: </label></td>
+          <td><input id="desc" name="desc"></td>
+        </tr>
 
-        <li>
-          <label for="force"> Overwrite saved: </label>
-          <input type="checkbox" name="force" value="True">
-        </li>
+        <tr>
+          <td><label for="force"> Overwrite saved: </label></td>
+          <td><input type="checkbox" name="force" value="True"></td>
+        </tr>
 
-        <input type="submit" name="submit" value="save">
-      </ul>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="submit" value="Save"></td>
+        </tr>
+      </table>
     </form>
   </p>
 

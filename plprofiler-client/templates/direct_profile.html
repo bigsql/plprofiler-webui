@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+  <h3>{% block title %} Profile a Query {% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+  <style>
+    input {
+      width: 50%
+    }
+
+    textarea {
+      width: 50%
+    }
+  </style>
+
+  <script type="text/javascript">
+    function updateflags() {
+      var dbmenu = document.getElementById("servername");
+      var dbDetails = dbmenu.options[dbmenu.selectedIndex].value.sptrt(", ");
+      document.getElementById("host").value = dbDetails[0];
+      document.getElementById("port").value = dbDetails[1];
+      document.getElementById("dbname").value = dbDetails[2];
+    }
+  </script>
+
+  <form method="post">
+    <table style="width: 75%">
+      <tr>
+        <td><label for="servername"> Select a Connection: </label></td>
+        <td>
+          <select name="servername" style="width: 50%" id="servername" onchange="updateflags()">
+            {% for server in server_list %}
+              <option value="{{ server['host'] }}, {{ server['port'] }}, {{ server['name'] }}"> {{ server['servername'] }} </option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="width:15%"><label for="host"> Host: </label></td>
+        <td><input id="host" name="host" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="port"> Port: </label></td>
+        <td><input id="port" name="port" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="dbname"> Database Name: </label></td>
+        <td><input id="dbname" name="dbname" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="username">Username: </label></td>
+        <td><input name="username" id="username" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="result_name"> Result Name (optional): </label></td>
+        <td><input name="result_name" id="result_name"></td>
+      </tr>
+
+      <tr>
+        <td><label for="result_title"> Result Title (optional): </label></td>
+        <td><input name="result_title" id="result_title"></td>
+      </tr>
+
+      <tr>
+        <td><label for="result_description"> Result Description(optional): </label></td>
+        <td><textarea name="result_description" id="result_description"></textarea></td>
+      </tr>
+
+      <tr>
+        <td><label for="query">Query to Profile: </label></td>
+        <td><textarea name="query" id="query"></textarea></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Profile"></td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}
